@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@aws-amplify/ui-react": "^3.5.2",
+    "@aws-amplify/cli": "^10.0.0",
+    "@aws-amplify/ui-react": "^3.5.4",
     "aws-amplify": "^4.3.35",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
@@ -16,5 +17,17 @@
   },
   "devDependencies": {
     "react-scripts": "latest"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

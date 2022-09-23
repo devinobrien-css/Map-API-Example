@@ -1,11 +1,9 @@
 import {
 	MapView,
+    LocationSearch
 } from '@aws-amplify/ui-react'
-import { useState,useCallback,useRef } from 'react';
+import { useState,useCallback,useRef, Children } from 'react';
 import { Marker,Popup } from 'react-map-gl'
-
-
-
 
 function MarkerWithPopup({ latitude, longitude, title, description, image }) {
 	const [showPopup, setShowPopup] = useState(false)
@@ -21,9 +19,9 @@ function MarkerWithPopup({ latitude, longitude, title, description, image }) {
 				latitude={latitude}
 				longitude={longitude}
 				onClick={handleMarkerClick}
-				scale={0.8}
-				color={'blue'}
-			/>
+			>
+                <img src="./jg-logo-pin.png" />
+            </Marker>
 			{showPopup && (
 			<Popup
                 latitude={latitude}
@@ -33,9 +31,9 @@ function MarkerWithPopup({ latitude, longitude, title, description, image }) {
             >
                 <div className='rounded-full'>
                     <img
-                        src={image}
+                        src={"https://via.placeholder.com/80"}
                         alt=""
-                        className='rounded-full'
+                        className='rounded-full m-auto'
                     />
                 </div>
                 <p className='text-2xl'>{title}</p>
@@ -80,53 +78,23 @@ const hqLocationData = [
     }
 ]
 
-
-
-
-
-
-const UserMarkers = () => {
-    
-}
-
-const HqMarkers = () => {
-    
-}
-
-
 const LargeMap = () => {
     const mapRef = useRef();
 
-
-
-    const [{ latitude, longitude }, setMarkerLocation] = useState({
-        latitude: 40,
-        longitude: -100,
-    });
-    
-
-
-
-    const updateMarker = () =>
-        setMarkerLocation({ latitude: latitude + 5, longitude: longitude + 5 });
-
     return (
         <div className='px-2'>
-            <p className='text-4xl text-gray-100 my-2'>Amplify Large Map Example</p>
             <div className="flex flex-col justify-center items-center w-8/12  m-auto rounded-xl overflow-hidden ">
-                <div className='h-[500px]'>
+                <div className="h-[500px] w-full">
                     <MapView
                         initialViewState={{
                             longitude: -100.3381659,
                             latitude: 37.615686,
                             zoom: 3,
                         }}
-                        style={{height:'100%'}}
+                        style={{height:'100%',width:'100%'}}
                         ref={mapRef}
                     >
-                        <>
-                            
-                        </>
+                        <LocationSearch position="top-left" />
                         {
                             userLocationData.map((loc) => (
                                 <MarkerWithPopup
@@ -135,7 +103,6 @@ const LargeMap = () => {
                                     longitude={loc.longitude}
                                     title={loc.title}
                                     description={loc.description}
-                                    image={loc.image}
                                 />
                             ))
                         }
@@ -145,9 +112,9 @@ const LargeMap = () => {
                                     id="main-marker"
                                     latitude={loc.latitude}
                                     longitude={loc.longitude}
-                                    scale={1.8}
-                                    color={'red'}
-                                />
+                                >
+                                    <img src="./jg-pin.png" />
+                                </Marker>
                             ))
                         }
                         
@@ -189,7 +156,17 @@ const LargeMap = () => {
                 >jump to California</button>
                 <div></div>
             </div>
-            <button onClick={() => updateMarker()}>Move Marker</button>
+
+
+
+            <div className='w-full bg-gray-600 rounded my-2 p-4 flex'>
+                <button 
+                    className='bg-blue-500 m-auto block px-4 py-2 text-gray-300 rounded-lg uppercase font-bold'
+                    onClick={() => {
+                        alert('in-progress')
+                    }}
+                >Add Pin</button>
+            </div>
         </div>
     )
 }

@@ -4,9 +4,10 @@ import { Amplify } from 'aws-amplify'
 import { AmplifyProvider } from '@aws-amplify/ui-react'
 import App from './App'
 import config from './aws-exports'
+
 import './index.css'
 import '@aws-amplify/ui-react/styles.css'
-
+// Initialize the Amazon Cognito credentials provider
 Amplify.configure(config)
 const container = document.getElementById('root')
 const root = createRoot(container)

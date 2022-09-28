@@ -64,19 +64,13 @@
     }
   },
   "Parameters": {
-    "authmapapiexample4fb3a132UserPoolId": {
+    "authuserPoolGroupsMapUserPoolGroupRole": {
       "Type": "String"
     },
-    "authRoleName": {
+    "authmapapiexample1b00325eUserPoolId": {
       "Type": "String"
     },
-    "unauthRoleName": {
-      "Type": "String"
-    },
-    "mapName": {
-      "Type": "String"
-    },
-    "mapStyle": {
+    "collectionName": {
       "Type": "String"
     },
     "env": {
@@ -87,7 +81,7 @@
     }
   },
   "Resources": {
-    "CustomMapLambdaServiceRole4EE7732C": {
+    "CustomGeofenceCollectionLambdaServiceRole9040D551": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -118,25 +112,25 @@
         ]
       }
     },
-    "CustomMapLambdaServiceRoleDefaultPolicy983FDD4E": {
+    "CustomGeofenceCollectionLambdaServiceRoleDefaultPolicy0A18B369": {
       "Type": "AWS::IAM::Policy",
       "Properties": {
         "PolicyDocument": {
           "Statement": [
             {
-              "Action": "geo:CreateMap",
+              "Action": "geo:CreateGeofenceCollection",
               "Effect": "Allow",
               "Resource": "*"
             },
             {
               "Action": [
-                "geo:UpdateMap",
-                "geo:DeleteMap"
+                "geo:UpdateGeofenceCollection",
+                "geo:DeleteGeofenceCollection"
               ],
               "Effect": "Allow",
               "Resource": {
                 "Fn::Sub": [
-                  "arn:aws:geo:${region}:${account}:map/${mapName}",
+                  "arn:aws:geo:${region}:${account}:geofence-collection/${collectionName}",
                   {
                     "region": {
                       "Fn::FindInMap": [
@@ -150,12 +144,12 @@
                     "account": {
                       "Ref": "AWS::AccountId"
                     },
-                    "mapName": {
+                    "collectionName": {
                       "Fn::Join": [
                         "-",
                         [
                           {
-                            "Ref": "mapName"
+                            "Ref": "collectionName"
                           },
                           {
                             "Ref": "env"
@@ -170,23 +164,23 @@
           ],
           "Version": "2012-10-17"
         },
-        "PolicyName": "CustomMapLambdaServiceRoleDefaultPolicy983FDD4E",
+        "PolicyName": "CustomGeofenceCollectionLambdaServiceRoleDefaultPolicy0A18B369",
         "Roles": [
           {
-            "Ref": "CustomMapLambdaServiceRole4EE7732C"
+            "Ref": "CustomGeofenceCollectionLambdaServiceRole9040D551"
           }
         ]
       }
     },
-    "CustomMapLambda51D5D430": {
+    "CustomGeofenceCollectionLambdaCA3D002B": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "ZipFile": "const response = require('cfn-response');\nconst aws = require('aws-sdk');\nexports.handler = async function (event, context) {\n  try {\n    console.log('REQUEST RECEIVED:' + JSON.stringify(event));\n    const pricingPlan = 'RequestBasedUsage';\n    if (event.RequestType == 'Create') {\n      let params = {\n        MapName: event.ResourceProperties.mapName,\n        Configuration: {\n          Style: event.ResourceProperties.mapStyle,\n        },\n        PricingPlan: pricingPlan\n      };\n      const locationClient = new aws.Location({ apiVersion: '2020-11-19', region: event.ResourceProperties.region });\n      const res = await locationClient.createMap(params).promise();\n      console.log('create resource response data' + JSON.stringify(res));\n      if (res.MapName && res.MapArn) {\n        await response.send(event, context, response.SUCCESS, res, params.MapName);\n      } else {\n        await response.send(event, context, response.FAILED, res, params.MapName);\n      }\n    }\n    if (event.RequestType == 'Update') {\n      let params = {\n        MapName: event.ResourceProperties.mapName,\n        PricingPlan: pricingPlan\n      };\n      const locationClient = new aws.Location({ apiVersion: '2020-11-19', region: event.ResourceProperties.region });\n      const res = await locationClient.updateMap(params).promise();\n      console.log('update resource response data' + JSON.stringify(res));\n      if (res.MapName && res.MapArn) {\n        await response.send(event, context, response.SUCCESS, res, params.MapName);\n      } else {\n        await response.send(event, context, response.FAILED, res, params.MapName);\n      }\n    }\n    if (event.RequestType == 'Delete') {\n      let params = {\n        MapName: event.ResourceProperties.mapName\n      };\n      const locationClient = new aws.Location({ apiVersion: '2020-11-19', region: event.ResourceProperties.region });\n      const res = await locationClient.deleteMap(params).promise();\n      console.log('delete resource response data' + JSON.stringify(res));\n      await response.send(event, context, response.SUCCESS, res, params.MapName);\n    }\n  } catch (err) {\n    console.log(err.stack);\n    const res = { Error: err };\n    await response.send(event, context, response.FAILED, res, event.ResourceProperties.mapName);\n    throw err;\n  }\n};\n"
+          "ZipFile": "const response = require('cfn-response');\nconst aws = require('aws-sdk');\nexports.handler = async function (event, context) {\n  try {\n    console.log('REQUEST RECEIVED:' + JSON.stringify(event));\n    const pricingPlan = 'RequestBasedUsage';\n    if (event.RequestType == 'Create') {\n      const params = {\n        CollectionName: event.ResourceProperties.collectionName,\n        PricingPlan: pricingPlan\n      };\n      const locationClient = new aws.Location({ apiVersion: '2020-11-19', region: event.ResourceProperties.region });\n      const res = await locationClient.createGeofenceCollection(params).promise();\n      console.log('create resource response data' + JSON.stringify(res));\n      if (res.CollectionName && res.CollectionArn) {\n        await response.send(event, context, response.SUCCESS, res, params.CollectionName);\n      } else {\n        await response.send(event, context, response.FAILED, res, params.CollectionName);\n      }\n    }\n    if (event.RequestType == 'Update') {\n      const params = {\n        CollectionName: event.ResourceProperties.collectionName,\n        PricingPlan: pricingPlan\n      };\n      const locationClient = new aws.Location({ apiVersion: '2020-11-19', region: event.ResourceProperties.region });\n      const res = await locationClient.updateGeofenceCollection(params).promise();\n      console.log('update resource response data' + JSON.stringify(res));\n      if (res.CollectionName) {\n        await response.send(event, context, response.SUCCESS, res, params.CollectionName);\n      } else {\n        await response.send(event, context, response.FAILED, res, params.CollectionName);\n      }\n    }\n    if (event.RequestType == 'Delete') {\n      const params = {\n        CollectionName: event.ResourceProperties.collectionName\n      };\n      const locationClient = new aws.Location({ apiVersion: '2020-11-19', region: event.ResourceProperties.region });\n      const res = await locationClient.deleteGeofenceCollection(params).promise();\n      console.log('delete resource response data' + JSON.stringify(res));\n      await response.send(event, context, response.SUCCESS, res, params.CollectionName);\n    }\n  } catch (err) {\n    console.log(err.stack);\n    const res = { Error: err };\n    await response.send(event, context, response.FAILED, res, event.ResourceProperties.collectionName);\n    throw err;\n  }\n};\n"
         },
         "Role": {
           "Fn::GetAtt": [
-            "CustomMapLambdaServiceRole4EE7732C",
+            "CustomGeofenceCollectionLambdaServiceRole9040D551",
             "Arn"
           ]
         },
@@ -195,34 +189,31 @@
         "Timeout": 300
       },
       "DependsOn": [
-        "CustomMapLambdaServiceRoleDefaultPolicy983FDD4E",
-        "CustomMapLambdaServiceRole4EE7732C"
+        "CustomGeofenceCollectionLambdaServiceRoleDefaultPolicy0A18B369",
+        "CustomGeofenceCollectionLambdaServiceRole9040D551"
       ]
     },
-    "CustomMap": {
+    "CustomGeofenceCollection": {
       "Type": "Custom::LambdaCallout",
       "Properties": {
         "ServiceToken": {
           "Fn::GetAtt": [
-            "CustomMapLambda51D5D430",
+            "CustomGeofenceCollectionLambdaCA3D002B",
             "Arn"
           ]
         },
-        "mapName": {
+        "collectionName": {
           "Fn::Join": [
             "-",
             [
               {
-                "Ref": "mapName"
+                "Ref": "collectionName"
               },
               {
                 "Ref": "env"
               }
             ]
           ]
-        },
-        "mapStyle": {
-          "Ref": "mapStyle"
         },
         "region": {
           "Fn::FindInMap": [
@@ -240,23 +231,43 @@
       "UpdateReplacePolicy": "Delete",
       "DeletionPolicy": "Delete"
     },
-    "MapPolicy": {
+    "MapUserPoolGeofenceCollectionPolicy": {
       "Type": "AWS::IAM::Policy",
       "Properties": {
         "PolicyDocument": {
           "Statement": [
             {
               "Action": [
-                "geo:GetMapStyleDescriptor",
-                "geo:GetMapGlyphs",
-                "geo:GetMapSprites",
-                "geo:GetMapTile"
+                "geo:GetGeofence",
+                "geo:PutGeofence",
+                "geo:BatchPutGeofence",
+                "geo:BatchDeleteGeofence",
+                "geo:ListGeofences"
               ],
               "Effect": "Allow",
               "Resource": {
-                "Fn::GetAtt": [
-                  "CustomMap",
-                  "MapArn"
+                "Fn::Sub": [
+                  "arn:aws:geo:${region}:${account}:geofence-collection/${collectionName}",
+                  {
+                    "region": {
+                      "Fn::FindInMap": [
+                        "RegionMapping",
+                        {
+                          "Ref": "AWS::Region"
+                        },
+                        "locationServiceRegion"
+                      ]
+                    },
+                    "account": {
+                      "Ref": "AWS::AccountId"
+                    },
+                    "collectionName": {
+                      "Fn::GetAtt": [
+                        "CustomGeofenceCollection",
+                        "CollectionName"
+                      ]
+                    }
+                  }
                 ]
               }
             }
@@ -267,12 +278,13 @@
           "Fn::Join": [
             "",
             [
+              "MapUserPool",
               {
                 "Fn::Join": [
                   "-",
                   [
                     {
-                      "Ref": "mapName"
+                      "Ref": "collectionName"
                     },
                     {
                       "Ref": "env"
@@ -286,10 +298,15 @@
         },
         "Roles": [
           {
-            "Ref": "authRoleName"
-          },
-          {
-            "Ref": "unauthRoleName"
+            "Fn::Join": [
+              "-",
+              [
+                {
+                  "Ref": "authmapapiexample1b00325eUserPoolId"
+                },
+                "MapUserPoolGroupRole"
+              ]
+            ]
           }
         ]
       }
@@ -299,14 +316,9 @@
     "Name": {
       "Value": {
         "Fn::GetAtt": [
-          "CustomMap",
-          "MapName"
+          "CustomGeofenceCollection",
+          "CollectionName"
         ]
-      }
-    },
-    "Style": {
-      "Value": {
-        "Ref": "mapStyle"
       }
     },
     "Region": {
@@ -322,12 +334,31 @@
     },
     "Arn": {
       "Value": {
-        "Fn::GetAtt": [
-          "CustomMap",
-          "MapArn"
+        "Fn::Sub": [
+          "arn:aws:geo:${region}:${account}:geofence-collection/${collectionName}",
+          {
+            "region": {
+              "Fn::FindInMap": [
+                "RegionMapping",
+                {
+                  "Ref": "AWS::Region"
+                },
+                "locationServiceRegion"
+              ]
+            },
+            "account": {
+              "Ref": "AWS::AccountId"
+            },
+            "collectionName": {
+              "Fn::GetAtt": [
+                "CustomGeofenceCollection",
+                "CollectionName"
+              ]
+            }
+          }
         ]
       }
     }
   },
-  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"10.0.0\",\"stackType\":\"geo-Map\",\"metadata\":{}}"
+  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"10.0.0\",\"stackType\":\"geo-GeofenceCollection\",\"metadata\":{}}"
 }

@@ -1,6 +1,6 @@
 {
   "auth": {
-    "mapapiexample4fb3a132": {
+    "mapapiexample1b00325e": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -23,70 +23,90 @@
           "EMAIL"
         ]
       }
+    },
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "mapapiexample1b00325e",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ]
+        }
+      ]
     }
   },
   "geo": {
-    "ConnectMap": {
-      "isDefault": false,
+    "geofenceStorage": {
+      "isDefault": true,
       "providerPlugin": "awscloudformation",
-      "service": "Map",
-      "mapStyle": "VectorEsriStreets",
-      "accessType": "AuthorizedAndGuestUsers",
+      "service": "GeofenceCollection",
+      "accessType": "CognitoGroups",
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "mapapiexample4fb3a132",
+          "resourceName": "mapapiexample1b00325e",
           "attributes": [
             "UserPoolId"
+          ]
+        },
+        {
+          "category": "auth",
+          "resourceName": "userPoolGroups",
+          "attributes": [
+            "MapUserPoolGroupRole"
           ]
         }
       ]
     },
-    "map9e4a416a": {
-      "isDefault": false,
-      "providerPlugin": "awscloudformation",
-      "service": "Map",
-      "mapStyle": "VectorEsriNavigation",
-      "accessType": "AuthorizedAndGuestUsers",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "mapapiexample4fb3a132",
-          "attributes": [
-            "UserPoolId"
-          ]
-        }
-      ]
-    },
-    "DarkStyleMap": {
+    "NavigationMap": {
       "isDefault": true,
       "providerPlugin": "awscloudformation",
       "service": "Map",
       "mapStyle": "VectorEsriDarkGrayCanvas",
-      "accessType": "AuthorizedAndGuestUsers",
+      "accessType": "AuthorizedUsers",
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "mapapiexample4fb3a132",
+          "resourceName": "mapapiexample1b00325e",
           "attributes": [
             "UserPoolId"
+          ]
+        },
+        {
+          "category": "auth",
+          "resourceName": "userPoolGroups",
+          "attributes": [
+            "MapUserPoolGroupRole"
           ]
         }
       ]
     },
-    "locSearchIndex": {
+    "LocationMap": {
       "isDefault": true,
       "providerPlugin": "awscloudformation",
       "service": "PlaceIndex",
-      "dataProvider": "Here",
-      "dataSourceIntendedUse": "Storage",
-      "accessType": "AuthorizedAndGuestUsers",
+      "dataProvider": "HERE",
+      "dataSourceIntendedUse": "SingleUse",
+      "accessType": "AuthorizedUsers",
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "mapapiexample4fb3a132",
+          "resourceName": "mapapiexample1b00325e",
           "attributes": [
             "UserPoolId"
+          ]
+        },
+        {
+          "category": "auth",
+          "resourceName": "userPoolGroups",
+          "attributes": [
+            "MapUserPoolGroupRole"
           ]
         }
       ]

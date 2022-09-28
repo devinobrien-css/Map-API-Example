@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "mapapiexample4fb3a132_identitypool_4fb3a132",
-    "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "mapapi4fb3a132",
-    "userPoolName": "mapapiexample4fb3a132_userpool_4fb3a132",
+    "identityPoolName": "mapapiexample1b00325e_identitypool_1b00325e",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "mapapi1b00325e",
+    "userPoolName": "mapapiexample1b00325e_userpool_1b00325e",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,13 +31,16 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "mapapi4fb3a132_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "mapapi1b00325e_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "4fb3a132",
-    "resourceName": "mapapiexample4fb3a132",
+    "sharedId": "1b00325e",
+    "resourceName": "mapapiexample1b00325e",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "default",
-    "userPoolGroupList": [],
+    "triggers": {},
+    "userPoolGroupList": [
+      "MapUserPool"
+    ],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
     "useEnabledMfas": true,
@@ -54,6 +57,10 @@
       ]
     },
     "breakCircularDependency": true,
-    "dependsOn": []
+    "dependsOn": [],
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    },
+    "permissions": []
   }
 }

@@ -1,3 +1,6 @@
+import { withAuthenticator } from "@aws-amplify/ui-react"
+
+
 import LargeMap from "./maps/LargeMap"
 import MapEventSection from "./maps/MapEventSection"
 
@@ -11,6 +14,7 @@ import { Marker } from "react-map-gl"
 import MiniMapEvent from "./maps/MiniMapEvent"
 import { awsLogo } from "./logos/aws"
 import { appleLogo } from "./logos/apple"
+import GeoFenceMap from "./maps/GeoFenceMap"
 
 
 
@@ -209,10 +213,27 @@ function App() {
 				</div>
 
 
+				<br/>
+
+				<p className='text-4xl dark:text-gray-400 my-2'>GeoFenced Map Example</p>
+				<div className="w-4/5 h-[500px] m-auto rounded-xl overflow-hidden">
+					<GeoFenceMap geodata={JGHQNY_geodata}>
+						<Marker
+							latitude={JGHQNY_geodata.latitude}
+							longitude= {JGHQNY_geodata.longitude}
+						>
+							<img src="./jg-pin.png" />
+						</Marker>
+					</GeoFenceMap>
+				</div>
+
+				<br/>
+				<br/>
+				<br/>
 			</div>
 
 		</div>
 	)
 }
 
-export default App
+export default withAuthenticator(App)

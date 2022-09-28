@@ -1,0 +1,10 @@
+{
+  "groupPermissions": {
+    "MapUserPool": [
+      "Read geofence",
+      "Create/Update geofence",
+      "Delete geofence",
+      "List geofences"
+    ]
+  }
+}

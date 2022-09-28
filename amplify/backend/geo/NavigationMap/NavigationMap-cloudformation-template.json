@@ -64,7 +64,10 @@
     }
   },
   "Parameters": {
-    "authmapapiexample4fb3a132UserPoolId": {
+    "authuserPoolGroupsMapUserPoolGroupRole": {
+      "Type": "String"
+    },
+    "authmapapiexample1b00325eUserPoolId": {
       "Type": "String"
     },
     "authRoleName": {
@@ -289,7 +292,15 @@
             "Ref": "authRoleName"
           },
           {
-            "Ref": "unauthRoleName"
+            "Fn::Join": [
+              "-",
+              [
+                {
+                  "Ref": "authmapapiexample1b00325eUserPoolId"
+                },
+                "MapUserPoolGroupRole"
+              ]
+            ]
           }
         ]
       }

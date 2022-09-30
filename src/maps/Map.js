@@ -2,6 +2,7 @@ import {
 	MapView,
     useMap
 } from '@aws-amplify/ui-react'
+import { useEffect, useRef } from 'react';
 
 /** Map Wrapper
  * 

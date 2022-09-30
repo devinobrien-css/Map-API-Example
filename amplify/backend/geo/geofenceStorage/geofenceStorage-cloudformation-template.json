@@ -67,7 +67,7 @@
     "authuserPoolGroupsMapUserPoolGroupRole": {
       "Type": "String"
     },
-    "authmapapiexample1b00325eUserPoolId": {
+    "authmapexampled81546fbUserPoolId": {
       "Type": "String"
     },
     "collectionName": {
@@ -241,7 +241,6 @@
                 "geo:GetGeofence",
                 "geo:PutGeofence",
                 "geo:BatchPutGeofence",
-                "geo:BatchDeleteGeofence",
                 "geo:ListGeofences"
               ],
               "Effect": "Allow",
@@ -302,7 +301,7 @@
               "-",
               [
                 {
-                  "Ref": "authmapapiexample1b00325eUserPoolId"
+                  "Ref": "authmapexampled81546fbUserPoolId"
                 },
                 "MapUserPoolGroupRole"
               ]
@@ -359,6 +358,5 @@
         ]
       }
     }
-  },
-  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"10.0.0\",\"stackType\":\"geo-GeofenceCollection\",\"metadata\":{}}"
+  }
 }

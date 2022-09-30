@@ -11,11 +11,12 @@ import { userLocationData, groupLocationData, groupClusters } from "./data/geoda
 
 
 import { Marker } from "react-map-gl"
+
+
 import MiniMapEvent from "./maps/MiniMapEvent"
 import { awsLogo } from "./logos/aws"
 import { appleLogo } from "./logos/apple"
 import GeoFenceMap from "./maps/GeoFenceMap"
-
 
 
 const JGHQNY_geodata={
@@ -74,10 +75,9 @@ const CustomScalingMap = () => {
 }
 
 
-
 function App() {
 	const [viewState,setViewState] = useState();
-
+	
 	useEffect(()=>{
 		console.log(viewState)
 	},[viewState])
@@ -216,7 +216,7 @@ function App() {
 				<br/>
 
 				<p className='text-4xl dark:text-gray-400 my-2'>GeoFenced Map Example</p>
-				<div className="w-4/5 h-[500px] m-auto rounded-xl overflow-hidden">
+				<div className="h-[600px] m-auto rounded-xl overflow-hidden">
 					<GeoFenceMap geodata={JGHQNY_geodata}>
 						<Marker
 							latitude={JGHQNY_geodata.latitude}
@@ -230,6 +230,11 @@ function App() {
 				<br/>
 				<br/>
 				<br/>
+
+				<p className='text-4xl dark:text-gray-400 my-2'>Routing Example</p>
+
+				<p className='text-4xl dark:text-gray-400 my-2'>Create Event Example</p>
+				<p className='text-xl dark:text-gray-600 my-2'>give metadata, drop pin, drop geofence, notification preferences</p>
 			</div>
 
 		</div>

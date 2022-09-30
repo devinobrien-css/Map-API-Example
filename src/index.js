@@ -1,14 +1,24 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { Amplify } from 'aws-amplify'
+import { Amplify, Auth, Geo } from 'aws-amplify';
 import { AmplifyProvider } from '@aws-amplify/ui-react'
 import App from './App'
 import config from './aws-exports'
-
 import './index.css'
 import '@aws-amplify/ui-react/styles.css'
-// Initialize the Amazon Cognito credentials provider
+
+// configure amplify app
 Amplify.configure(config)
+console.log(config)
+
+//configure map colorway
+const availableMaps =  Geo.getAvailableMaps(); // all map colors
+Geo.configure().AmazonLocationService.maps.default="StandardMap-dev" // set to light mode
+
+
+console.log(Geo.searchByText("108 state street schennectady"))
+
+
 const container = document.getElementById('root')
 const root = createRoot(container)
 

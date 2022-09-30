@@ -1,6 +1,6 @@
 {
   "auth": {
-    "mapapiexample1b00325e": {
+    "mapexampled81546fb": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -30,7 +30,7 @@
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "mapapiexample1b00325e",
+          "resourceName": "mapexampled81546fb",
           "attributes": [
             "UserPoolId",
             "AppClientIDWeb",
@@ -42,7 +42,7 @@
     }
   },
   "geo": {
-    "geofenceStorage": {
+    "GeofenceStorage": {
       "isDefault": true,
       "providerPlugin": "awscloudformation",
       "service": "GeofenceCollection",
@@ -50,7 +50,7 @@
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "mapapiexample1b00325e",
+          "resourceName": "mapexampled81546fb",
           "attributes": [
             "UserPoolId"
           ]
@@ -64,7 +64,7 @@
         }
       ]
     },
-    "NavigationMap": {
+    "DarkModeMap": {
       "isDefault": true,
       "providerPlugin": "awscloudformation",
       "service": "Map",
@@ -73,7 +73,7 @@
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "mapapiexample1b00325e",
+          "resourceName": "mapexampled81546fb",
           "attributes": [
             "UserPoolId"
           ]
@@ -87,17 +87,63 @@
         }
       ]
     },
-    "LocationMap": {
+    "LightModeMap": {
+      "isDefault": false,
+      "providerPlugin": "awscloudformation",
+      "service": "Map",
+      "mapStyle": "VectorEsriStreets",
+      "accessType": "AuthorizedUsers",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "mapexampled81546fb",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "auth",
+          "resourceName": "userPoolGroups",
+          "attributes": [
+            "MapUserPoolGroupRole"
+          ]
+        }
+      ]
+    },
+    "SearchMap": {
       "isDefault": true,
       "providerPlugin": "awscloudformation",
       "service": "PlaceIndex",
-      "dataProvider": "HERE",
+      "dataProvider": "Here",
       "dataSourceIntendedUse": "SingleUse",
       "accessType": "AuthorizedUsers",
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "mapapiexample1b00325e",
+          "resourceName": "mapexampled81546fb",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "auth",
+          "resourceName": "userPoolGroups",
+          "attributes": [
+            "MapUserPoolGroupRole"
+          ]
+        }
+      ]
+    },
+    "StandardMap": {
+      "isDefault": false,
+      "providerPlugin": "awscloudformation",
+      "service": "Map",
+      "mapStyle": "RasterEsriImagery",
+      "accessType": "AuthorizedUsers",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "mapexampled81546fb",
           "attributes": [
             "UserPoolId"
           ]

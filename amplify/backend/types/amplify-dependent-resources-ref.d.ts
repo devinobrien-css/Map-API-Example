@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
     "auth": {
-        "mapapiexample1b00325e": {
+        "mapexampled81546fb": {
             "IdentityPoolId": "string",
             "IdentityPoolName": "string",
             "UserPoolId": "string",
@@ -14,19 +14,31 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "geo": {
-        "geofenceStorage": {
+        "GeofenceStorage": {
             "Name": "string",
             "Region": "string",
             "Arn": "string"
         },
-        "NavigationMap": {
+        "DarkModeMap": {
             "Name": "string",
             "Style": "string",
             "Region": "string",
             "Arn": "string"
         },
-        "LocationMap": {
+        "LightModeMap": {
             "Name": "string",
+            "Style": "string",
+            "Region": "string",
+            "Arn": "string"
+        },
+        "SearchMap": {
+            "Name": "string",
+            "Region": "string",
+            "Arn": "string"
+        },
+        "StandardMap": {
+            "Name": "string",
+            "Style": "string",
             "Region": "string",
             "Arn": "string"
         }

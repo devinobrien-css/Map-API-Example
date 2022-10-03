@@ -5,8 +5,6 @@ import { AmplifyGeofenceControl } from "maplibre-gl-js-amplify";
 import "@aws-amplify/ui-react/styles.css";
 import "maplibre-gl/dist/maplibre-gl.css";
 import "maplibre-gl-js-amplify/dist/public/amplify-ctrl-geofence.css";
-import { RouteContainer } from "@aws-amplify/ui-react/dist/types/components/Authenticator/RouteContainer";
-import { Router } from "@aws-amplify/ui-react/dist/types/components/Authenticator/Router";
 
 /** Map with admin geofencing functionality
  * 
@@ -33,7 +31,6 @@ const GeoFenceMap = ({ geodata,children }) => {
             <NavigationControl />
             <GeolocateControl />
             <FullscreenControl />
-            
 
             <Geofence style={{position:"absolute",top:0}} position="top"/>
             {

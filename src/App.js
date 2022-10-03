@@ -17,6 +17,8 @@ import MiniMapEvent from "./maps/MiniMapEvent"
 import { awsLogo } from "./logos/aws"
 import { appleLogo } from "./logos/apple"
 import GeoFenceMap from "./maps/GeoFenceMap"
+import RouteMap from "./maps/RouteMap"
+import RouteMapExample from "./examples/RouteMapExample"
 
 
 const JGHQNY_geodata={
@@ -231,8 +233,13 @@ function App() {
 				<br/>
 				<br/>
 
-				<p className='text-4xl dark:text-gray-400 my-2'>Routing Example</p>
+				<p className='text-4xl dark:text-gray-400 my-2'>Routing Example </p>
+				<RouteMapExample />
 
+
+				<br/>
+				<br/>
+				<br/>
 				<p className='text-4xl dark:text-gray-400 my-2'>Create Event Example</p>
 				<p className='text-xl dark:text-gray-600 my-2'>give metadata, drop pin, drop geofence, notification preferences</p>
 			</div>

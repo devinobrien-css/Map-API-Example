@@ -13,10 +13,10 @@ console.log(config)
 
 //configure map colorway
 const availableMaps =  Geo.getAvailableMaps(); // all map colors
-Geo.configure().AmazonLocationService.maps.default="StandardMap-dev" // set to light mode
+Geo.configure().AmazonLocationService.maps.default="DarkModeMap-dev" // set to light mode
 
 
-console.log(Geo.searchByText("108 state street schennectady"))
+
 
 
 const container = document.getElementById('root')

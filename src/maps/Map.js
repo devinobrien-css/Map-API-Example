@@ -1,36 +1,25 @@
-import {
-	MapView,
-    useMap
-} from '@aws-amplify/ui-react'
-import { useEffect, useRef } from 'react';
+import { MapView } from '@aws-amplify/ui-react'
 
 /** Map Wrapper
  * 
- * @param {Component} children 
+ * @param {Component} children any child elements to embed within the map
  * @returns 
  */
-const Map = ({ viewState,children }) => {
+const Map = ({ children }) => {
     return (
-            <MapView
-                initialViewState={{
-                    longitude: -100.3381659,
-                    latitude: 37.615686,
-                    zoom: 3,
-                }}
-                onZoomEnd={(e) => {
-                    viewState(e.viewState)
-                    console.log(e.viewState)
-                }}
-                style={{height:'100%', width:"100%"}}
-            >
-                {
-                    children
-                }
-            </MapView>
-
+        <MapView
+            initialViewState={{
+                longitude: -100.3381659,
+                latitude: 37.615686,
+                zoom: 3,
+            }}
+            style={{height:'100%', width:"100%"}}
+        >
+            {
+                children
+            }
+        </MapView>
     )
-
-
 }
 
 export default Map

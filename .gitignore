@@ -1,6 +1,6 @@
-./package-lock.json
-
-./node_modules
+package-lock.json
+.env
+node_modules
 
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend

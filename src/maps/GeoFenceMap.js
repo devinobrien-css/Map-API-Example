@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { MapView,withAuthenticator } from "@aws-amplify/ui-react";
-import { useControl, Marker, ScaleControl, NavigationControl, GeolocateControl, FullscreenControl, AttributionControl } from "react-map-gl";
+import { useControl, Marker } from "react-map-gl";
 import { AmplifyGeofenceControl } from "maplibre-gl-js-amplify";
 import "@aws-amplify/ui-react/styles.css";
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -27,11 +27,6 @@ const GeoFenceMap = ({ geodata,children }) => {
             }}
             style={{height:'100%', width:"100%"}}
         >
-            <ScaleControl />
-            <NavigationControl />
-            <GeolocateControl />
-            <FullscreenControl />
-
             <Geofence style={{position:"absolute",top:0}} position="top"/>
             {
                 children
@@ -39,6 +34,4 @@ const GeoFenceMap = ({ geodata,children }) => {
         </MapView>
     );
 }
-
-
 export default withAuthenticator(GeoFenceMap);

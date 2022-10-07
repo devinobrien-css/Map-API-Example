@@ -1,7 +1,5 @@
 import RouteMap from "../maps/RouteMap"
 
-
-
 /* TEST DATA */
 const src = {
     longitude:  -56.164532,
@@ -34,12 +32,10 @@ const dst5 = {
 
 
 const RouteMapExample = () => {
-
-
-
-
     return (
-        <RouteMap src={src} dst_set={[dst,dst1,dst2,dst3,dst4,dst5]}/>
+        <div className='h-[500px]'>
+            <RouteMap src={src} dst_set={[dst,dst1,dst2,dst3,dst4,dst5]}/>
+        </div>
     )
 
 }

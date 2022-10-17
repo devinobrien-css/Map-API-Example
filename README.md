@@ -35,6 +35,7 @@ This creates a policy on AWS with full access to Amazon Location Services. We wi
 ### Create an IAM user/Add Policies to existing IAM user
 Next, an IAM user with two policies must be established by going to `IAM > users > Add User > Permissions` or editing an existing user. These two policies include the prior defined geo policy as well as `AdministratorAccess-Amplify`
 
+> save these credentials as you may have to reuse them
 
 ### Initialize Amplify app
 
@@ -42,3 +43,20 @@ Next, an IAM user with two policies must be established by going to `IAM > users
 Map-API-Example % amplify init
 ```
 > Initialize with access keys, and enter the credentials of the prior created/updated IAM user
+
+
+### Add geo to amplify
+Having our amplify app initialized, we can now add a variety of geo services. The first service we will add is a general location map.
+```
+Map-API-Example % amplify add geo
+```
+When the CLI prompts, 
+- Select `Map (visualize the geospatial data)` as the map type. Accept the CLI's prompt to add auth.
+
+- Setting up authentication, select `Default configuration`, then `username`, and complete auth set up.
+
+- Name your map, provide access to `Authorized users only`, and optionally configure advanced settings.
+
+> Advanced settings allows the choice of map colorways and styles. If you wish to provide functionality for toggling colorways, a separate map must be created for each. To explore all potential map styles, reference [`AWS Console > Amazon Location Services > Maps > Create Map`](https://us-east-1.console.aws.amazon.com/location/maps/home?region=us-east-1#/).
+
+We can now test the set up of our application

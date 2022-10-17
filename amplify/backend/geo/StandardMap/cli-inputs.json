@@ -1,5 +1,3 @@
 {
-  "groupPermissions": [
-    "MapUserPool"
-  ]
+  "groupPermissions": []
 }

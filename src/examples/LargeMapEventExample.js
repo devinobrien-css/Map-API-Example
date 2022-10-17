@@ -8,7 +8,7 @@ const LargeMapEventExample = () => {
         <MapEventSection 
             header={
                 <div className="p-2">
-                    <p className="text-3xl uppercase text-gray-300">an upcoming event</p>
+                    <p className="text-4xl uppercase dark:text-gray-300">an upcoming event</p>
                 </div>
             }
             geodata={JGHQNY_geodata}
@@ -16,24 +16,24 @@ const LargeMapEventExample = () => {
 
             {/*  Example Decription of Event    */}
             <div className="px-4">
-                <p className="text-4xl py-2 text-gray-300">Join us for Coffee!</p>
+                <p className="text-4xl py-2 dark:text-gray-300">Join us for Coffee!</p>
 
-                <p className="text-lg py-2 text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium blanditiis sit minus, itaque doloremque quibusdam.</p>
+                <p className="text-lg py-2 dark:text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium blanditiis sit minus, itaque doloremque quibusdam.</p>
 
                 <hr className="border-2 my-2"/>
 
                 <div className="flex">
-                    <p className="text-gray-400 text-lg pr-2">when:</p>
-                    <p className="text-lg text-blue-300">Saturday, October 22 8:30pm</p>
+                    <p className="text-gray-600 text-lg pr-2">when:</p>
+                    <p className="text-lg text-blue-500">Saturday, October 22 8:30pm</p>
                 </div>
 
                 <div className="flex">
-                    <p className="text-gray-400 text-lg pr-2">where:</p>
-                    <p className="text-lg text-blue-300">This New Spot</p>
+                    <p className="text-gray-600 text-lg pr-2">where:</p>
+                    <p className="text-lg text-blue-500">This New Spot</p>
                 </div>
                 
                 <div className="flex flex-col justify-left w-fit">
-                    <p className="text-lg  text-gray-400 my-auto mx-0 w-fit ">attending: </p>  
+                    <p className="text-lg  text-gray-600 my-auto mx-0 w-fit ">attending: </p>  
                     <MiniDiskCollection/>
                 </div>
 

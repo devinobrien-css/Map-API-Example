@@ -1,6 +1,6 @@
 {
   "auth": {
-    "mapexampled81546fb": {
+    "mapexamples290fc0cb": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -23,136 +23,21 @@
           "EMAIL"
         ]
       }
-    },
-    "userPoolGroups": {
-      "service": "Cognito-UserPool-Groups",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "mapexampled81546fb",
-          "attributes": [
-            "UserPoolId",
-            "AppClientIDWeb",
-            "AppClientID",
-            "IdentityPoolId"
-          ]
-        }
-      ]
     }
   },
   "geo": {
-    "GeofenceStorage": {
-      "isDefault": true,
-      "providerPlugin": "awscloudformation",
-      "service": "GeofenceCollection",
-      "accessType": "CognitoGroups",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "mapexampled81546fb",
-          "attributes": [
-            "UserPoolId"
-          ]
-        },
-        {
-          "category": "auth",
-          "resourceName": "userPoolGroups",
-          "attributes": [
-            "MapUserPoolGroupRole"
-          ]
-        }
-      ]
-    },
-    "DarkModeMap": {
+    "standardMap": {
       "isDefault": true,
       "providerPlugin": "awscloudformation",
       "service": "Map",
-      "mapStyle": "VectorEsriDarkGrayCanvas",
-      "accessType": "AuthorizedUsers",
+      "mapStyle": "VectorHereBerlin",
+      "accessType": "AuthorizedAndGuestUsers",
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "mapexampled81546fb",
+          "resourceName": "mapexamples290fc0cb",
           "attributes": [
             "UserPoolId"
-          ]
-        },
-        {
-          "category": "auth",
-          "resourceName": "userPoolGroups",
-          "attributes": [
-            "MapUserPoolGroupRole"
-          ]
-        }
-      ]
-    },
-    "LightModeMap": {
-      "isDefault": false,
-      "providerPlugin": "awscloudformation",
-      "service": "Map",
-      "mapStyle": "VectorEsriStreets",
-      "accessType": "AuthorizedUsers",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "mapexampled81546fb",
-          "attributes": [
-            "UserPoolId"
-          ]
-        },
-        {
-          "category": "auth",
-          "resourceName": "userPoolGroups",
-          "attributes": [
-            "MapUserPoolGroupRole"
-          ]
-        }
-      ]
-    },
-    "SearchMap": {
-      "isDefault": true,
-      "providerPlugin": "awscloudformation",
-      "service": "PlaceIndex",
-      "dataProvider": "Here",
-      "dataSourceIntendedUse": "SingleUse",
-      "accessType": "AuthorizedUsers",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "mapexampled81546fb",
-          "attributes": [
-            "UserPoolId"
-          ]
-        },
-        {
-          "category": "auth",
-          "resourceName": "userPoolGroups",
-          "attributes": [
-            "MapUserPoolGroupRole"
-          ]
-        }
-      ]
-    },
-    "StandardMap": {
-      "isDefault": false,
-      "providerPlugin": "awscloudformation",
-      "service": "Map",
-      "mapStyle": "RasterEsriImagery",
-      "accessType": "AuthorizedUsers",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "mapexampled81546fb",
-          "attributes": [
-            "UserPoolId"
-          ]
-        },
-        {
-          "category": "auth",
-          "resourceName": "userPoolGroups",
-          "attributes": [
-            "MapUserPoolGroupRole"
           ]
         }
       ]

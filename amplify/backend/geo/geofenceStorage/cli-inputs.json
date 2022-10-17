@@ -1,9 +1,0 @@
-{
-  "groupPermissions": {
-    "MapUserPool": [
-      "Read geofence",
-      "Create/Update geofence",
-      "List geofences"
-    ]
-  }
-}

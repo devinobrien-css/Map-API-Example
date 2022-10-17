@@ -4,15 +4,10 @@
 
 The following examples are components abstracting the use of Amazon Location Services into Map Components.
 
-## Installation
+## Local Set-up
 
-
-
-
-
-
-
-## Execution
-
-After configuring AWS and Amplify,
-- run `npm install && npm start`
+### Install Dependencies
+Ensure that all application dependencies and the Amplify CLI are installed
+```
+npm install && npm install -g @aws-amplify/cli
+```

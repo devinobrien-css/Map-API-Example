@@ -98,13 +98,29 @@ Map-API-Example % amplify add geo
 When the CLI prompts,
 - Select the option `Geofencing (visualize virtual perimeters)`
 - Name your geofence collection; The storage on AWS for saved geofences.
-- Confirm the addition of a Cognito User Pool
+- Confirm the addition of a Cognito User Pool.
 - Select `Create or update Cognito user pool groups`
 - Name your user pool; Opt out of adding another; Optionally, sort the user pool groups.
 - Grant full access to the created user pool *(click space on each option then press enter)*
 
-> Additionally, we must add the prior created policy to the groups *(auth,unauth)* of this user pool.
+> Additionally, we must adjust our prior created policy to our app's Federated Identities in Cognito
 
-Go to [`AWS Console > Cognito > User Pools`](https://us-east-1.console.aws.amazon.com/cognito/v2/idp/user-pools).
+Go to `AWS Console > Amplify > YOUR_APP > YOUR_BACKEND_ENV > Auth > View Federated Identities in Cognito`
+- Select `Edit Federated Identities` in the top right of the page
+- Note down the auth/unauth roles associated with this identity
 
-**Test your work by pushing your changes to amplify, then switching to the 'geofence' tab of the launched app. Try to add a geofence to the map.**
+In a separate tab, go to `AWS Console > IAM > Roles`
+- locate the auth/unauth roles noted prior
+- add the prior created policy to both of these roles.
+**Test your work by pushing your changes to amplify, then switching to the 'geofence' tab of the launched app. If configured incorrectly, a 400 error should print on the console relative to IAM groups/roles. Test the ability to add, name and save geofences on the map.**
+
+### Add routing
+Routing requires the creation of a route calculator on the AWS Console. 
+
+Go to `[AWS Console > Amazon Location Services > Route Calculators](https://us-east-1.console.aws.amazon.com/location/routes/home?region=us-east-1)`
+- Select `Create New Route Calculator`
+- Name and create a new route calculator
+- Save this calculator in a `.env` file in the `src` folder of the repo in the format:
+```
+GEO_ROUTER = "YOUR_ROUTER"
+```

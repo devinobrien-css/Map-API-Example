@@ -66,4 +66,4 @@ When the CLI prompts,
 
 > Advanced settings allows the choice of map colorways and styles. If you wish to provide functionality for toggling colorways, a separate map must be created for each. To explore all potential map styles, reference [`AWS Console > Amazon Location Services > Maps > Create Map`](https://us-east-1.console.aws.amazon.com/location/maps/home?region=us-east-1#/).
 
-We can now test the set up of our application
+We can now test the initial set up of our application. Launch the app using `npm start`. If the page renders the test tab and a map displays, you've successfully laid the foundation to the application.

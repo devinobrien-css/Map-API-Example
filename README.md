@@ -117,7 +117,7 @@ In a separate tab, go to `AWS Console > IAM > Roles`
 ### Add routing
 Routing requires the creation of a route calculator on the AWS Console. 
 
-Go to `[AWS Console > Amazon Location Services > Route Calculators](https://us-east-1.console.aws.amazon.com/location/routes/home?region=us-east-1)`
+Go to [`AWS Console > Amazon Location Services > Route Calculators`](https://us-east-1.console.aws.amazon.com/location/routes/home?region=us-east-1)
 - Select `Create New Route Calculator`
 - Name and create a new route calculator
 - Save this calculator in a `.env` file in the `src` folder of the repo in the format:

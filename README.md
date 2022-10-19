@@ -105,6 +105,6 @@ When the CLI prompts,
 
 > Additionally, we must add the prior created policy to the groups *(auth,unauth)* of this user pool.
 
-Go to [`AWS Console > Cognito > User Pools`](https://us-east-1.console.aws.amazon.com/location/maps/home?region=us-east-1#/)](https://us-east-1.console.aws.amazon.com/cognito/v2/idp/user-pools).
+Go to [`AWS Console > Cognito > User Pools`](https://us-east-1.console.aws.amazon.com/cognito/v2/idp/user-pools).
 
 **Test your work by pushing your changes to amplify, then switching to the 'geofence' tab of the launched app. Try to add a geofence to the map.**

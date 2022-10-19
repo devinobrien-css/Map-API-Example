@@ -122,5 +122,6 @@ Go to [`AWS Console > Amazon Location Services > Route Calculators`](https://us-
 - Name and create a new route calculator
 - Save this calculator in a `.env` file in the `src` folder of the repo in the format:
 ```
-GEO_ROUTER = "YOUR_ROUTER"
+GEO_ROUTER = "YOUR_ROUTER_NAME"
 ```
+**Test your work by pushing your changes to amplify, then switching to the 'routing' tab of the launched app. If the routes appear, you've successfully configured routing.**

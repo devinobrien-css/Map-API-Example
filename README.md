@@ -87,10 +87,19 @@ When the CLI prompts,
 - Name your search index. This resource enables pin-dropping on a searched location.
 - Select `Authorized and Guest users`
 - Optionally, configure advanced settings.
-Test your work by pushing your changes to amplify, then switching to the 'location' tab of the launched app. Try to search for a place on the map.
+
+**Test your work by pushing your changes to amplify, then switching to the 'location' tab of the launched app. Try to search for a place on the map.**
 
 ### Add geofencing
 To enable a map with geofencing, call to add another geo resource.
 ```
 Map-API-Example % amplify add geo
 ```
+When the CLI prompts,
+- Select the option `Geofencing (visualize virtual perimeters)`
+- Name your geofence collection; The storage on AWS for saved geofences.
+- Confirm the addition of a Cognito User Pool
+- Select `Create or update Cognito user pool groups`
+- Name your user pool; Opt out of adding another; Optionally, sort the user pool groups.
+- Grant full access to the created user pool *(click space on each option then press enter)*
+**Test your work by pushing your changes to amplify, then switching to the 'location' tab of the launched app. Try to search for a place on the map.**

@@ -23,6 +23,22 @@
           "EMAIL"
         ]
       }
+    },
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "mapexamples290fc0cb",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ]
+        }
+      ]
     }
   },
   "geo": {
@@ -38,6 +54,45 @@
           "resourceName": "mapexamples290fc0cb",
           "attributes": [
             "UserPoolId"
+          ]
+        }
+      ]
+    },
+    "searchIndex": {
+      "isDefault": true,
+      "providerPlugin": "awscloudformation",
+      "service": "PlaceIndex",
+      "dataProvider": "HERE",
+      "dataSourceIntendedUse": "SingleUse",
+      "accessType": "AuthorizedAndGuestUsers",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "mapexamples290fc0cb",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ]
+    },
+    "geofenceCollection": {
+      "isDefault": true,
+      "providerPlugin": "awscloudformation",
+      "service": "GeofenceCollection",
+      "accessType": "CognitoGroups",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "mapexamples290fc0cb",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "auth",
+          "resourceName": "userPoolGroups",
+          "attributes": [
+            "MapLatestUserPoolGroupRole"
           ]
         }
       ]

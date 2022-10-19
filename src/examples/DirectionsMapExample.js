@@ -12,7 +12,7 @@ const dst = {
 
 const DirectionsMapExample = () => {
     return (
-        <div className='h-[500px]'>
+        <div className='h-[80vw]'>
             <DirectionsMap src={src} dst={dst}/>
         </div>
     )

@@ -33,7 +33,7 @@ const ScalingMapExample = () => {
 	}
 
 	return (
-        <div className="w-3/5 h-[500px] m-auto rounded-xl overflow-hidden">
+        <div className="w-screen h-[500px] m-auto rounded-xl overflow-hidden">
             <ScalingMap
                 cutoff={3}
                 over={over}

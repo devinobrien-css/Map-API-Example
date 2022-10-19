@@ -20,7 +20,7 @@ const ROUTE_LAYER = {
  * 
  * @param {JSON} src 
  * @param {JSON} dst 
- * @param {String} uid 
+ * @param {String} uid a unique id assigned to each route
  * @param {String} travelMode 
  * 
  * @returns 
@@ -49,10 +49,7 @@ const PlotRoute =  ({src,dst,uid,travelMode}) => {
             // retrieve leg data of route
             const leg_data = await client.calculateRoute(params).promise();
 
-            console.log(leg_data.Legs)
-            console.log(leg_data.Summary.DurationSeconds/60)
-            console.log(leg_data.$response)
-
+            // map legs into full routes by converting to a turf feature set
             const route = leg_data.Legs.map(leg => {
                 const geom = leg.Geometry;
         

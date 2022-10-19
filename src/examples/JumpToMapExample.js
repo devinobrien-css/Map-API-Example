@@ -67,19 +67,6 @@ const JumpToMapExample = () => {
                         });
                     }}
                 >jump to NY</button>
-                <button 
-                    className='bg-blue-500 m-auto block px-4 py-2 text-gray-300 rounded-lg uppercase font-bold'
-                    onClick={() => {
-                        
-                        mapRef.current.flyTo({ center: [172.78, 42.28], zoom: 5 });
-                    }}
-                >jump to Texas</button>
-                <button 
-                    className='bg-blue-500 m-auto block px-4 py-2 text-gray-300 rounded-lg uppercase font-bold'
-                    onClick={() => {
-                        mapRef.current.flyTo({ center: [172.78, 2.28], zoom: 5 });
-                    }}
-                >jump to California</button>
                 <div></div>
             </div>
         </>

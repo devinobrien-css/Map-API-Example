@@ -8,12 +8,25 @@ export type AmplifyDependentResourcesAttributes = {
             "UserPoolName": "string",
             "AppClientIDWeb": "string",
             "AppClientID": "string"
+        },
+        "userPoolGroups": {
+            "MapLatestUserPoolGroupRole": "string"
         }
     },
     "geo": {
         "standardMap": {
             "Name": "string",
             "Style": "string",
+            "Region": "string",
+            "Arn": "string"
+        },
+        "searchIndex": {
+            "Name": "string",
+            "Region": "string",
+            "Arn": "string"
+        },
+        "geofenceCollection": {
+            "Name": "string",
             "Region": "string",
             "Arn": "string"
         }

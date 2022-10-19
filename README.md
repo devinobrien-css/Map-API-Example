@@ -103,4 +103,4 @@ When the CLI prompts,
 - Name your user pool; Opt out of adding another; Optionally, sort the user pool groups.
 - Grant full access to the created user pool *(click space on each option then press enter)*
 
-**Test your work by pushing your changes to amplify, then switching to the 'location' tab of the launched app. Try to search for a place on the map.**
+**Test your work by pushing your changes to amplify, then switching to the 'geofence' tab of the launched app. Try to add a geofence to the map.**

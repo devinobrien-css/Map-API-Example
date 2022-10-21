@@ -12,7 +12,7 @@ const JumpToMapExample = () => {
 
     return (
         <>
-                <div className="h-[500px] w-full">
+                <div className="h-[500px] w-full rounded-lg overflow-hidden">
                     <MapView
                         initialViewState={{
                             longitude: -100.3381659,
@@ -48,7 +48,7 @@ const JumpToMapExample = () => {
                     </MapView>
 
             </div>
-            <div className='w-full bg-gray-600 rounded my-2 p-4 flex'>
+            <div className='w-full bg-white dark:bg-gray-600 rounded my-2 p-4 flex'>
                 <button 
                     className='bg-blue-500 m-auto block px-4 py-2 text-gray-300 rounded-lg uppercase font-bold'
                     onClick={() => {

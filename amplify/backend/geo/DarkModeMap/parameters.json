@@ -5,7 +5,7 @@
   "unauthRoleName": {
     "Ref": "UnauthRoleName"
   },
-  "mapName": "standardMap",
-  "mapStyle": "VectorHereBerlin",
+  "mapName": "DarkModeMap",
+  "mapStyle": "VectorEsriDarkGrayCanvas",
   "isDefault": false
 }

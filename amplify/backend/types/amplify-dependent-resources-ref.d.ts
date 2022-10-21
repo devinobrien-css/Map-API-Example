@@ -29,6 +29,24 @@ export type AmplifyDependentResourcesAttributes = {
             "Name": "string",
             "Region": "string",
             "Arn": "string"
+        },
+        "DarkModeMap": {
+            "Name": "string",
+            "Style": "string",
+            "Region": "string",
+            "Arn": "string"
+        },
+        "LightModeMap": {
+            "Name": "string",
+            "Style": "string",
+            "Region": "string",
+            "Arn": "string"
+        },
+        "Satellite": {
+            "Name": "string",
+            "Style": "string",
+            "Region": "string",
+            "Arn": "string"
         }
     }
 }

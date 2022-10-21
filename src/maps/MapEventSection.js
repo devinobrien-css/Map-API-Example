@@ -11,7 +11,7 @@ import { Marker,Popup } from 'react-map-gl'
 
 const MapEventSection = ({ header,geodata,children }) => {
     return (
-        <div className="flex flex-row h-96 rounded-xl overflow-hidden dark:bg-gray-600 bg-gray-300 w-10/12 m-auto">
+        <div className="flex flex-row h-96 rounded-xl overflow-hidden dark:bg-gray-600 bg-gray-300 w-full md:w-10/12 m-auto">
             <div className='w-1/2 relative'>
                 <div className='absolute z-50'>{header}</div>
                 <MapView

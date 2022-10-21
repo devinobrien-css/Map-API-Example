@@ -43,7 +43,7 @@
   },
   "geo": {
     "standardMap": {
-      "isDefault": true,
+      "isDefault": false,
       "providerPlugin": "awscloudformation",
       "service": "Map",
       "mapStyle": "VectorHereBerlin",
@@ -80,6 +80,75 @@
       "providerPlugin": "awscloudformation",
       "service": "GeofenceCollection",
       "accessType": "CognitoGroups",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "mapexamples290fc0cb",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "auth",
+          "resourceName": "userPoolGroups",
+          "attributes": [
+            "MapLatestUserPoolGroupRole"
+          ]
+        }
+      ]
+    },
+    "DarkModeMap": {
+      "isDefault": false,
+      "providerPlugin": "awscloudformation",
+      "service": "Map",
+      "mapStyle": "VectorEsriDarkGrayCanvas",
+      "accessType": "AuthorizedAndGuestUsers",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "mapexamples290fc0cb",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "auth",
+          "resourceName": "userPoolGroups",
+          "attributes": [
+            "MapLatestUserPoolGroupRole"
+          ]
+        }
+      ]
+    },
+    "LightModeMap": {
+      "isDefault": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Map",
+      "mapStyle": "VectorEsriLightGrayCanvas",
+      "accessType": "AuthorizedAndGuestUsers",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "mapexamples290fc0cb",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "auth",
+          "resourceName": "userPoolGroups",
+          "attributes": [
+            "MapLatestUserPoolGroupRole"
+          ]
+        }
+      ]
+    },
+    "Satellite": {
+      "isDefault": false,
+      "providerPlugin": "awscloudformation",
+      "service": "Map",
+      "mapStyle": "RasterEsriImagery",
+      "accessType": "AuthorizedAndGuestUsers",
       "dependsOn": [
         {
           "category": "auth",

@@ -33,7 +33,7 @@ const dst5 = {
 
 const RouteMapExample = () => {
     return (
-        <div className='h-[500px]'>
+        <div className='h-[60vh] w-full md:w-4/5 mx-auto'>
             <RouteMap src={src} dst_set={[dst,dst1,dst2,dst3,dst4,dst5]}/>
         </div>
     )

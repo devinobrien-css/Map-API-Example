@@ -8,14 +8,14 @@ const LargeMapEventExample = () => {
         <MapEventSection 
             header={
                 <div className="p-2">
-                    <p className="text-4xl uppercase dark:text-gray-300">an upcoming event</p>
+                    <p className="text-4xl uppercase text-white drop-shadow-xl">an upcoming event</p>
                 </div>
             }
             geodata={JGHQNY_geodata}
         >
 
             {/*  Example Decription of Event    */}
-            <div className="px-4">
+            <div className="px-4 bg-white dark:bg-gray-700 h-full">
                 <p className="text-4xl py-2 dark:text-gray-300">Join us for Coffee!</p>
 
                 <p className="text-lg py-2 dark:text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium blanditiis sit minus, itaque doloremque quibusdam.</p>

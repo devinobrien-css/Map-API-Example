@@ -18,10 +18,17 @@ async function view_credentials(){
 }
 
 
+view_credentials();
 
-// configure map colorway
-// const availableMaps =  Geo.getAvailableMaps(); // all map colors
-// Geo.configure().AmazonLocationService.maps.default="DarkModeMap-dev" // set to light mode
+
+
+const map_style = localStorage.getItem("map-style")
+if(map_style === null)
+	localStorage.setItem("map-style",Geo.getAvailableMaps()[0].mapName)
+
+console.log(localStorage.getItem("map-style"))
+
+Geo.configure().AmazonLocationService.maps.default=localStorage.getItem("map-style")
 
 const container = document.getElementById('root')
 const root = createRoot(container)

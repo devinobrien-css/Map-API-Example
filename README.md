@@ -60,9 +60,7 @@ Map-API-Example % amplify add geo
 ```
 When the CLI prompts, 
 - Select `Map (visualize the geospatial data)` as the map type. Accept the CLI's prompt to add auth.
-
 - Setting up authentication, select `Default configuration`, then `username`, and complete auth set up.
-
 - Name your map, provide access to `Authorized users only`, and optionally configure advanced settings.
 
 > Advanced settings allows the choice of map colorways and styles. If you wish to provide functionality for toggling colorways, a separate map must be created for each. To explore all potential map styles, reference [`AWS Console > Amazon Location Services > Maps > Create Map`](https://us-east-1.console.aws.amazon.com/location/maps/home?region=us-east-1#/).
@@ -125,3 +123,18 @@ Go to [`AWS Console > Amazon Location Services > Route Calculators`](https://us-
 GEO_ROUTER = "YOUR_ROUTER_NAME"
 ```
 **Test your work by pushing your changes to amplify, then switching to the 'routing' tab of the launched app. If the routes appear, you've successfully configured routing.**
+
+### Add styling
+Enabling different map styles requires creating a map resource for each desired colorway.
+```
+Map-API-Example % amplify add geo
+```
+When the CLI prompts, 
+- Select `Map (visualize the geospatial data)` as the map type. Accept the CLI's prompt to add auth.
+- Setting up authentication, select `Default configuration`, then `username`, and complete auth set up.
+- Name your map DarkMode, provide access to `Authorized users only`, and optionally configure advanced settings.
+- Opt in to configuring advanced settings. For this example, select map style `DarkGrayCanvas`.
+- Don't set this map to default.
+- Repeat the completed steps for one more map; Name the map Satellite and select the map style `Imagery`
+
+**Test your work by pushing your changes to amplify, then switching to the styling tab of the launched app. If your created maps show up, select one and make sure the map updates when the page refreshes.**

@@ -138,3 +138,7 @@ When the CLI prompts,
 - Repeat the completed steps for one more map; Name the map Satellite and select the map style `Imagery`
 
 **Test your work by pushing your changes to amplify, then switching to the styling tab of the launched app. If your created maps show up, select one and make sure the map updates when the page refreshes.**
+
+
+## Advanced Functionality | Hitting AWS ALS API
+Functionality such as plotting routes and evaluating geofences requires hitting the Amazon Location Services API.

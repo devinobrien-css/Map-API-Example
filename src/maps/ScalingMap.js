@@ -1,7 +1,6 @@
 import { MapView } from '@aws-amplify/ui-react'
 import { useEffect, useState } from "react"
 
-
 /** A map that changes the nodes plotted based on viewstate 
  * 
  * @param {Float} cutoff 

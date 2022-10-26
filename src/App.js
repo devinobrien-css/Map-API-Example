@@ -11,6 +11,7 @@ import { Marker, ScaleControl, NavigationControl, GeolocateControl, FullscreenCo
 import { Geo } from 'aws-amplify';
 import Map from "./maps/Map"
 import { useEffect, useState } from "react"
+import HeatMapExample from "./examples/HeatMapExample"
 
 const DarkModeToggle = () => {
 	const [mode,setMode] = useState("light")
@@ -109,6 +110,11 @@ function RenderContent(mapChoice){
 	else if(mapChoice === "heatmap"){
 		return (
 			<>
+				<p className='text-4xl dark:text-gray-400 my-2'>Heat Map Example</p>
+				<HeatMapExample />
+
+				<br/>
+
 				<p className='text-4xl dark:text-gray-400 my-2'>Scaling Map Example</p>
 				<ScalingMapExample />
 			</>
@@ -188,7 +194,7 @@ function App() {
 			<p className='text-2xl text-gray-500'>a set of various map tamplates</p>
 			<DarkModeToggle />
 
-			<div className="not:md:absolute my-2 md:flex md:flex-row md:flex right-5 z-[100] group w-min flex-wrap md:w-full mx-auto overflow-x-scroll rounded-lg shadow-xl bg-white dark:bg-gray-600 dark:text-white">
+			<div className=" my-2 md:flex md:flex-row right-5 z-[100] group w-min flex-wrap md:w-full mx-auto overflow-x-scroll rounded-lg shadow-xl bg-white dark:bg-gray-600 dark:text-white">
 				{
 					mapChoices.map(tab => {
 						return (
@@ -197,7 +203,7 @@ function App() {
 									setMapChoice(tab)
 								}}
 								className={
-									"text-center hover:bg-gray-200 px-2 not:md:group-hover:w-full w-[14.26%] cursor-pointer text-lg " 
+									"text-center hover:bg-gray-200 px-2 not:md:group-hover:w-full md:w-[14.26%] cursor-pointer text-lg " 
 									+ (mapChoice===tab?"bg-gray-300 font-bold text-gray-700 ":"hidden md:block group-hover:block")
 								}
 							>

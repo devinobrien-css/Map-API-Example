@@ -12,7 +12,10 @@ Amplify.configure(config)
  */
 async function view_credentials(){
 	console.log(Geo)
+
 	console.log(Geo.getAvailableMaps())
+	console.log((await Geo.listGeofences()).entries)
+	console.log((await Geo.getGeofence("test2")))
 	console.log(Amplify)
 	console.log(await Auth.currentUserInfo())
 }

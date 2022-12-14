@@ -10,7 +10,7 @@ import { useEffect, useState } from "react"
  * @returns a map that scales based on viewport
  */
 const ScalingMap = ({ cutoff, over, under }) => {
-	const [viewState,setViewState] = useState();
+	const [viewState,setViewState] = useState()
 	const [data,setData] = useState(over)
 
 	useEffect(()=>{
